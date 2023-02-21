@@ -1,7 +1,10 @@
 import React, { useReducer } from 'react';
 import './App.css';
 import InputTodo from './components/InputTodo';
+import ReducerSample from './components/ReducerSample';
+import ReducerSampleEdit from './components/ReducerSampleEdit';
 import TodoLists from './components/TodoLists';
+import SampleContext from './context/SampleContext';
 
 
 
@@ -69,10 +72,14 @@ function App() {
   
   return (
     <div className="App">
-      <InputTodo onAdd={onAdd}/>
+      {/* <InputTodo onAdd={onAdd}/>
       <TodoLists todos={todos} 
       onToggletodo = {onToggletodo}
       onDeltodo = {onDeltodo}/>
+      <ReducerSample/> */}
+      <SampleContext>
+        <ReducerSampleEdit/>
+      </SampleContext>
     </div>
   );
 }
