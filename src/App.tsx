@@ -77,9 +77,10 @@ function App() {
       onToggletodo = {onToggletodo}
       onDeltodo = {onDeltodo}/>
       <ReducerSample/> */}
-      <SampleContext>
+      {/* <SampleContext>
         <ReducerSampleEdit/>
-      </SampleContext>
+      </SampleContext> */}
+      
     </div>
   );
 }
