@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import InputTodo from './components/InputTodo';
 import TodoLists from './components/TodoLists';
-import Todo from './components/Todo';
+
 
 
 const initialState = [
@@ -54,15 +54,25 @@ function reducer(state: dataType[], action: actionType): dataType[] {
 function App() {
   const [todos, dispatch] =  useReducer(reducer, initialState)
   console.log(todos)
-  const onAdd = () => {
+  const onAdd = (todo:dataType) => {
     dispatch({
-      type: "ADDTODO"
+      type: "ADDTODO",
+      todo: todo
     })
   }
+  const onToggletodo = (id:number) => {
+    dispatch({type: "TOGGLETODO", id: id})
+  }
+  const onDeltodo = (id:number) => {
+    dispatch({type:"DELTODO", id: id})
+  }
+  
   return (
     <div className="App">
-      <Todo />
-      <TodoLists todos={todos}/>
+      <InputTodo onAdd={onAdd}/>
+      <TodoLists todos={todos} 
+      onToggletodo = {onToggletodo}
+      onDeltodo = {onDeltodo}/>
     </div>
   );
 }
